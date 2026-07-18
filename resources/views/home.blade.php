@@ -1,0 +1,9 @@
+@if(session('TOKEN'))
+    @if(session('admin_id'))
+        @include('admin.dashboard.dashboard_component')
+    @else
+        @include('agent.dashboard.dashboard_component')
+    @endif
+@else
+    @include('welcome')
+@endauth
