@@ -76,6 +76,19 @@
                                             <textarea name="description" class="form-control" rows="4"
                                                       placeholder="Décrivez le programme, ses objectifs, son contenu...">{{ $detail['description'] ?? '' }}</textarea>
                                         </div>
+                                      {{-- prix --}}
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label fw-semibold" for="prix">Prix (DT)</label>
+                                            <input type="number" 
+                                                step="0.01" 
+                                                min="0" 
+                                                name="prix" 
+                                                id="prix"
+                                                class="form-control" 
+                                                placeholder="Prix"
+                                                value="{{ $detail['prix'] ?? '' }}"
+                                                required>
+                                        </div>
 
                                         {{-- Durée & Niveau --}}
                                         <div class="col-md-6">

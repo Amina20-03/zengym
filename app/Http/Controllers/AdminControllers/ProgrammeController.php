@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use Ramsey\Uuid\Type\Decimal;
 
 class ProgrammeController extends Controller
 {
@@ -54,6 +55,7 @@ class ProgrammeController extends Controller
             ['name' => 'titre',          'contents' => (string)($request->titre ?? '')],
             ['name' => 'description',    'contents' => (string)($request->description ?? '')],
             ['name' => 'duree_semaines', 'contents' => (string)($request->duree_semaines ?? '')],
+            ['name' => 'prix', 'contents' => (string)($request->prix ?? '0')],
             ['name' => 'niveau',         'contents' => (string)($request->niveau ?? '')],
         ];
 
@@ -90,7 +92,7 @@ public function index_public()
     try {
         $programmes = \App\Models\Programme::select(
             'id', 'titre', 'nom', 'description', 'niveau', 
-            'duree_semaines', 'photo_url', 'prix', 'statut'
+            'duree_semaines', 'prix', 'photo_url', 'statut'
         )
         ->where('statut', 'actif')
         ->orderBy('created_at', 'desc')
@@ -141,6 +143,7 @@ public function index_public()
             ['name' => 'titre',          'contents' => (string)($request->titre ?? '')],
             ['name' => 'description',    'contents' => (string)($request->description ?? '')],
             ['name' => 'duree_semaines', 'contents' => (string)($request->duree_semaines ?? '')],
+            ['name' => 'prix', 'contents' => (int)($request->prix ?? '')],
             ['name' => 'niveau',         'contents' => (string)($request->niveau ?? '')],
             ['name' => 'actif',          'contents' => (string)($request->actif ?? '1')],
         ];

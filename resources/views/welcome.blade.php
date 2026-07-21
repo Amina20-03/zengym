@@ -638,7 +638,13 @@
                                             {{ $Prog->duree_semaines }} semaine{{ $Prog->duree_semaines > 1 ? 's' : '' }}
                                         </span>
                                     @endif
-                                </div>
+                                
+                                 @if(!empty($Prog->prix))
+            <span class="badge bg-label-warning">
+                {{ number_format($Prog->prix, 2) }} DT
+            </span>
+        @endif
+    </div>
 
                                 @if(!empty($Prog->description))
                                     <p class="text-muted small" style="display: -webkit-box; 
@@ -647,7 +653,11 @@
                                         {{ $Prog->description }}
                                     </p>
                                 @endif
+                                <a href="" class="btn btn-primary">
+    Acheter
+</a>
                             </div>
+                      
                         </div>
                     </div>
                 @endforeach
@@ -657,7 +667,9 @@
                     <p>Aucun programme disponible pour le moment.</p>
                 </div>
             @endif
+            
         </div>
+        
     </div>
 </section>
     <section class="section-py" style="background-color: whitesmoke">

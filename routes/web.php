@@ -15,7 +15,7 @@ Route::get('/', function () {
 
     // PROGRAMMES corrigé
     $Programmes = DB::table('programmes')
-        ->select('id', 'titre', 'description', 'niveau', 'duree_semaines', 
+        ->select('id', 'titre', 'description', 'niveau', 'prix','duree_semaines', 
                  'photo', 'actif')
         ->where('actif', 1)
         ->orderBy('created_at', 'desc')

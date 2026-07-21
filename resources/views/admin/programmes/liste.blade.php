@@ -70,6 +70,12 @@
                                                 {{ $prog['description'] }}
                                             </p>
                                         @endif
+                                      @if(!empty($prog['prix']))
+                                          <p class="fw-bold text-primary mb-3" style="font-size: 1.1rem;">
+                                            {{ number_format($prog['prix'], 2) }} DT
+                                                     </p>
+                                        @endif
+                                      
 
                                         {{-- Actions --}}
                                         <div class="d-flex gap-2">
